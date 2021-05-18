@@ -1,0 +1,345 @@
+
+
+<link rel="stylesheet" type="text/css" href="../style/portfolio.css" />
+<script type="text/javascript" src="../scripts/slideshows.js"></script>
+
+
+
+<div class="mainContain">
+	<div class="fadeRight"><img class="moveRight" src="../images/right-arrow.png" width="50"/></div>
+	<div class="fadeLeft"><img class="moveLeft" src="../images/right-arrow.png" width="50"/></div>
+
+	<div class="wrapper visible" >
+		<a class="photograph firstImage focus"><img src="../images/Tearsheets/2015_Cameron_Barnes_Photography_tearsheet_025.jpg" style="height:100%;" onContextMenu="return false;"/><div class="overlay"><span></span></div></a>
+	</div>
+
+
+	<div class="footer2">Cameron Barnes Photography © 2006-2016<br/><br/></div>
+</div>
+
+
+<div class="footer"></div>
+<div class="leftFooter"></div>
+
+<div class="slideShowLarge"><div class="arrow leftArrow">LEFT</div><div class="arrow rightArrow">RIGHT</div>
+	<div class="slideShowContain"></div>
+</div>
+
+<script type="text/javascript">
+
+
+
+	var menu = 0;
+
+
+	$("span.smallHlink").click(function(e){
+		e.preventDefault();
+
+		$("div.menu").show();
+	});
+
+	$("div.closeMenu span").click(function(e){
+		e.preventDefault();
+
+		$("div.menu").hide();
+	});
+
+	$("div.closeMenu2 span").click(function(e){
+		e.preventDefault();
+
+		$("div.menu2").hide();
+	});
+
+	$("a.photograph").on("mouseenter", function(){
+		if($(window).width() > 768){
+			$("a.photograph").each(function(){
+				$(this).find("div.overlay").hide();
+			});
+			$(this).find("div.overlay").fadeIn();
+		}
+	});
+
+	$("a.photograph").on("mouseleave", function(){
+		if($(window).width() > 768){
+			$(this).find("div.overlay").fadeOut();
+		}
+	});
+
+
+
+	var temp = "bangkok";
+
+	for(var time = 500; time <= 1500; time +=500){
+		setTimeout(function(){
+
+			menu = 0;
+
+			var width = 0;
+			var marginWidth = 0;
+			var count = 0;
+
+			$("div#"+temp).find("a").each(function(){
+				width += $(this).find("img").width();
+				if($(this).hasClass("firstImage")){
+					marginWidth = $(this).find("img").width();
+				}
+				count++;
+			});
+
+			count *= 10;
+
+			$("div#"+temp).width(width+count+2000);
+			var height = $("div#"+temp).height();
+
+			if(751 > $(window).width()){
+				$("div#"+temp).css("margin-left", "0px");
+			}
+			else{
+				$("div#"+temp).css("margin-left", (marginWidth/2)*(-1));
+			}
+
+			var heightTemp = $("div.outerContain").height() + $("div#map-canvas").height();
+
+
+			$("span.hLink").each(function(){
+				$(this).addClass("black");
+			});
+			var newH = $(window).height() - 100;
+
+			if($("span.mapCurrent").length){
+				$("span.mapCurrent").removeClass("mapCurrent");
+			}
+
+			$("span.smallHlink img").attr("src","../images/header-more-black.png");
+			$("span.smallMenuMapLink").css("color","rgb(180,180,180)");
+			$("span.smallMenuMapLink#"+temp+"2").addClass("mapCurrent");
+
+			$("div.visible").find("a.photograph").each(function(){
+				if($(window).width() < 751){
+					$(this).css("width","100%");
+				}
+				else{
+					var tempWidth = $(this).find("img").width();
+					$(this).width(tempWidth);
+				}
+			});
+		},time);
+	}
+
+	setTimeout(function(){
+		var width = 0;
+		var marginWidth = 0;
+		var count = 0;
+
+		$("div#"+temp).find("a").each(function(){
+			width += $(this).find("img").width();
+			if($(this).hasClass("firstImage")){
+				marginWidth = $(this).find("img").width();
+			}
+			count++;
+		});
+
+		count *= 10;
+
+		$("div#"+temp).width(width+count+2000);
+		var height = $("div#"+temp).height();
+	},3000);
+
+
+	$("span.smallMenuMapLink").click(function(e){
+		var temp = $(this).attr("id");
+		temp = temp.substr(0 , temp.length-1);
+		$("circle#"+temp+"1").click();
+	});
+
+	$("div.menu_trigger").click(function(e){
+		e.preventDefault();
+		$("div.menu").toggle();
+		if(menu == 0){
+			menu = 1;
+			if($("div.visible").length){
+				$("div.menu_trigger").css("background","rgba(150,150,150,.8)");
+				$("div.menu_trigger").css("box-shadow","rgb(0, 0, 0) 0px 0px 5px inset");
+			}
+			else{
+				$("div.menu_trigger").css("background","rgba(120,120,120,.8)");
+				$("div.menu_trigger").css("box-shadow","rgb(0, 0, 0) 0px 0px 5px inset");
+			}
+		}
+		else{
+			menu = 0;
+			if($("div.visible").length){
+
+				$("div.menu_trigger").css("background","rgba(80,80,80,.8)");
+				$("div.menu_trigger").css("box-shadow","none");
+			}
+			else{
+				$("div.menu_trigger").css("background","rgba(255,255,255,.8)");
+				$("div.menu_trigger").css("box-shadow","none");
+			}
+		}
+
+	});
+
+	$("circle.imageShow").click(function(){
+
+		var temp = $(this).attr("id");
+		temp = temp.substr(0 , temp.length-1);
+
+		if(temp == "newYork"){
+			window.location.href= "New-York.html";
+		}
+		else if(temp == "vancouver"){
+			window.location.href= "Vancouver.html";
+		}
+		else if(temp == "cairo"){
+			window.location.href= "Cairo.html";
+		}
+		else if(temp == "beijing"){
+			window.location.href= "Beijing.html";
+		}
+		else if(temp == "bangkok"){
+			window.location.href= "Bangkok.html";
+		}
+		else if(temp == "lagos"){
+			window.location.href= "Lagos.html";
+		}
+		else if(temp == "london"){
+			window.location.href= "London.html";
+		}
+		else if(temp == "jerusalem"){
+			window.location.href= "Israel-Palestine.html";
+		}
+		else if(temp == "idaho"){
+			window.location.href= "Idaho.html";
+		}
+		else if(temp == "indonesia"){
+			window.location.href= "Indonesia.html";
+		}
+		else if(temp == "losangeles"){
+			window.location.href= "Los-Angeles.html";
+		}
+		else if(temp == "torino"){
+			window.location.href= "Torino.html";
+		}
+		else if(temp == "singapore"){
+			window.location.href = "Singapore.html";
+		}
+		else{
+			window.location.href = "http://www.cameronbarnes.com";
+		}
+
+
+	});
+
+	function imageShow(id){
+
+		var temp = id;
+		temp = temp.substr(0 , temp.length-1);
+
+		$("div#"+temp).addClass("visible");
+		$("div#"+temp).show();
+
+		imagePosition();
+
+		var heightTemp = $("div.outerContain").height() + $("div#map-canvas").height();
+
+
+		$('body,html').animate({scrollTop:heightTemp});
+	}
+
+	/*$("div.marker").click(function(){
+
+	 var temp = $("span.imageShow").attr("id");
+	 temp = temp.substr(0 , temp.length-1);
+
+	 $("div#"+temp).addClass("visible");
+	 $("div#"+temp).show();
+
+	 imagePosition();
+
+	 var heightTemp = $("div.outerContain").height() + $("div#map-canvas").height();
+
+
+	 $('body,html').animate({scrollTop:heightTemp});
+	 });*/
+
+	var test = 0;
+	$("img.moveRight").click(function(){
+		arrowClick();
+		if(test!=1){
+			test=1;
+			setTimeout(function(){
+				var wrapper;
+				$("div.wrapper").each(function(){
+					if($(this).is(":visible")){
+						wrapper = $(this);
+					}
+
+				});
+
+				var width = wrapper.find("a.focus").find("img").width();
+				width = (width/2)+6;
+				var width2 = wrapper.find("a.focus").next().find("img").width();
+				width2 = width2/2;
+				var left = wrapper.css("margin-left");
+				left = Number(left.substr(0,left.length-2));
+
+				wrapper.animate({"margin-left": left - (width+width2) +"px"}, 100);
+
+				$("img.moveLeft").show();
+
+				var next = wrapper.find("a.focus").next();
+				wrapper.find("a.focus").removeClass("focus");
+				next.addClass("focus");
+
+				if(wrapper.find("a.focus").hasClass("lastImage")){
+					$("img.moveRight").hide();
+				}
+				setTimeout(function(){
+					test=0;
+				},101);
+			},101);
+		}
+	});
+
+	$("img.moveLeft").click(function(){
+		if(test!=1){
+			test=1;
+			setTimeout(function(){
+				var wrapper;
+				$("div.wrapper").each(function(){
+					if($(this).is(":visible")){
+						wrapper = $(this);
+					}
+
+				});
+
+				var width = wrapper.find("a.focus").find("img").width();
+				width = (width/2)+6;
+				var width2 = wrapper.find("a.focus").prev().find("img").width();
+				width2 = width2/2;
+				var left = wrapper.css("margin-left");
+				left = Number(left.substr(0,left.length-2));
+
+				var newMarg = left + (width+width2);
+
+				wrapper.animate({"margin-left": newMarg +"px"}, 100);
+
+				$("img.moveRight").show();
+
+				var prev = wrapper.find("a.focus").prev();
+				wrapper.find("a.focus").removeClass("focus");
+				prev.addClass("focus");
+
+				if(wrapper.find("a.focus").hasClass("firstImage")){
+					$("img.moveLeft").hide();
+				}
+				setTimeout(function(){
+					test=0;
+				},101);
+			},101);
+		}
+	});
+
+</script>

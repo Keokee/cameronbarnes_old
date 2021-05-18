@@ -1,0 +1,690 @@
+@font-face{
+    font-family:"Planer";
+    font-style:normal;
+    font-weight:normal;
+    src:url(../fonts/Planer_Reg.ttf);
+}
+
+@font-face{
+    font-family:"Bebas";
+    font-style:normal;
+    font-weight:normal;
+    src:url(../fonts/BebasNeue.otf);
+}
+
+@font-face{
+    font-family:"FallingSky";
+    font-style:normal;
+    font-weight:normal;
+    src:url(../fonts/FallingSky.otf);
+}
+
+@font-face{
+    font-family:"FallingSky";
+    font-style:normal;
+    font-weight:bold;
+    src:url(../fonts/FallingSkyBD.otf);
+}
+
+@font-face{
+    font-family:"FallingSky";
+    font-style:italic;
+    font-weight:normal;
+    src:url(../fonts/FallingSkyObl.otf);
+}
+
+@font-face{
+    font-family:"FallingSky";
+    font-style:italic;
+    font-weight:bold;
+    src:url(../fonts/FallingSkyBDObl.otf);
+}
+
+html,body{margin:0;padding:0;text-align:center;font-size:1.2em;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;}
+
+
+img::-moz-selection { 
+    background-color: transparent;
+    color: #000;
+}
+img::selection {
+    background-color: transparent;
+    color: #000;
+}
+
+div::-moz-selection{
+    background-color: transparent;
+    color: #000;
+}
+
+div::selection{
+    background-color: transparent;
+    color: #000;
+}
+
+span::-moz-selection{
+    background-color: transparent;
+    color: #aaa;
+}
+
+span::selection{
+    background-color: transparent;
+    color: #aaa;
+}
+
+
+div.header{
+    min-height:100px;
+    width:100%;
+    top:0;left:0;
+    /*background:rgb(70,70,70);*/
+    position:absolute;
+    z-index:20000;
+}
+
+
+div.logo{
+    position:absolute;
+    top:8px;
+    left:20px;
+    cursor:pointer;
+    font-family: "Planer", arial, helvetica, sans-serif;
+    color:black;
+    font-size:.5em;
+    border-radius:5px;
+    padding:2px;
+    background:rgba(255,255,255,.8);
+}
+
+div.logo:hover{
+    background:rgba(255,255,255,.8);
+}
+
+span.logoName{
+    display:inline-block;
+    font-size:180%;
+    vertical-align:top;
+    margin-top:2px;
+}
+
+div.logo:hover a{
+    
+    color:black !important;
+}
+
+div.logo img{
+    vertical-align:-.075em;
+}
+
+span.blue{
+    color:rgb(10,148,197);
+}
+
+span.beb{
+    font-family: "Bebas", arial, helvetica, sans-serif;
+letter-spacing: .25em;
+margin-left:.2em;
+font-size:1.1em;
+}
+
+div.logo a{
+    text-decoration:none;
+    color:black;
+}
+
+
+div.header-top{
+    width:100%;
+    min-height:40px;
+    color:black;
+    padding-top:10px;
+    text-align:left;
+    line-height:1.5em;
+    font-family: arial, helvetica, sans-serif;
+    font-size: .5em;
+}
+
+div.headerLinkContain{
+    width:98%;
+    text-align:right;
+}
+
+span.hLink{
+    margin-left:4em;
+    text-align:left;
+    display:inline-block;
+    font-weight:bold;
+    color:rgba(0,0,0,0.6);
+}
+
+span.socialHeader{
+    margin-left:5em;
+    text-align:left;
+    display:inline-block;
+}
+
+span.smallHlink{
+    display:none;
+    cursor:pointer;
+}
+
+span.hLink:hover{
+    color:black;
+    cursor:pointer;
+}
+
+span.hLink.selected{
+    color:black;
+}
+
+span.hLink.black{
+    color:rgba(0,0,0,0.6);
+}
+
+span.hLink.black:hover{
+    color:black;
+}
+
+span.hLink.selected.black{
+    color:black;
+}
+
+div.outerContain{
+    width:100%;
+    min-height:500px;
+}
+
+
+div.menu_trigger{
+    position:absolute;
+    height:50px;
+    width:120px;
+    bottom:0px;
+    left:50%;
+    margin-left:-60px;
+    z-index:10000;
+    cursor:pointer;
+    background:rgba(255,255,255,.8);
+    border-radius:20px 20px 0px 0px;
+    font-size:120%;
+    letter-spacing: 4px;
+    font-family: "Bebas", arial, helvetica, sans-serif;
+}
+
+div.menu_trigger div{
+    margin-top:10px;
+}
+
+a.noStyle{
+    color:inherit;
+    text-decoration:none;
+}
+
+div.menu_trigger img{
+    margin-left: -20px;
+    left:50%;
+    position: absolute;
+    right: 0;
+}
+
+div.menu{
+    width:100%;
+    height:420px;
+    top:50%;
+    margin-top:-210px;
+    background:rgba(0, 0, 0, 0.8);
+    position:absolute;
+    z-index:99999;
+    display:none;
+    font-family:"FallingSky", arial, helvetica, sans-serif;
+    font-weight:bold;
+    background:rgba(0,0,0,.8);
+    overflow:auto;
+    -webkit-overflow-scrolling:touch;
+}
+
+div.menu2{
+    width:100%;
+    height:420px;
+    top:50%;
+    margin-top:-210px;
+    background:rgba(255,255,255,.9);
+    position:absolute;
+    z-index:99999;
+    display:none;
+    font-family:"FallingSky", arial, helvetica, sans-serif;
+    font-weight:bold;
+}
+
+div.social{
+    position:absolute;
+    padding-top:20px;
+    bottom:0;
+    text-align:center;
+    margin-left:10%;
+    width:80%;
+    border-top:1pt solid white;
+}
+
+div.menu-logo{
+    margin-top:20px;
+}
+
+div.contactContain{
+    color:white;
+    position:relative;
+    
+}
+
+div.contactName{
+    font-family:"Batara";
+    font-size:1.6em;
+    margin-bottom:1em;
+}
+
+div.contactContain a,div.contactContain span{
+    color:rgba(0,200,255,.8);
+    cursor:pointer;
+    text-decoration:none;
+}
+
+div.main{
+    /*width:100%;*/
+    min-height:250px;
+    position:relative;
+    left:-10px;
+    
+    color:white;
+    -webkit-transition: -webkit-transform 3s; /* Safari */
+    transition: transform 3s;
+    float:left;
+    clear:both;
+}
+
+
+div.footer{
+    position:absolute;
+    bottom:3px;
+    right:20px;
+    font-size:65%;
+    font-family:"Planer", arial,helvetica,sans-serif;
+}
+
+div.leftFooter{
+    position:absolute;
+    bottom:3px;
+    left:20px;
+    font-size:65%;
+    font-family:"Planer", arial,helvetica,sans-serif;
+}
+
+div.footer3{
+    margin-top:20px;
+    font-size:65%;
+    font-weight:normal;
+    font-family:"Planer", arial,helvetica,sans-serif;
+    color:white;
+}
+
+div.socialBody{
+    margin-top:.6em;
+}
+
+span.smallMenuLink{
+    display:block;
+    text-align:left;
+    margin-left:20px;
+    margin-right:20px;
+    margin-top:.5em;
+    margin-bottom:.8em;
+    cursor:pointer;
+    color:rgb(0,150,240);
+}
+
+span.smallMenuMapLink{
+    display:block;
+    text-align:left;
+    margin-left:80px;
+    margin-right:20px;
+    cursor:pointer;
+    color:rgb(220,220,220);
+}
+
+span.smallMenuMapLink.mapCurrent{
+    background: rgb(180,180,180) !important;
+    color:rgb(80,80,80) !important;
+}
+
+
+
+div.smallMenu{
+    display:none;
+}
+
+div.closeMenu,div.closeMenu2{
+    position:relative;
+    top:10px;
+    right:20px;
+    font-weight:bold;
+    text-align:right;
+    font-size:130%;
+    margin-bottom:1.5em;
+    color:rgb(220,220,220);
+}
+
+div.closeMenu span,div.closeMenu2 span{
+    cursor:pointer;
+}
+
+
+div.frontCard{
+    height: 500px;
+    position:absolute;
+    top:50%;
+    margin-top:-250px;
+    width: 100%;
+    text-align:center;
+}
+
+div.innerCard{
+    display: inline-block;
+    font-family:"Planer";
+    line-height:1.6em;
+    font-size:120%;
+    margin-top:100px;
+}
+
+p.noMarg{
+    margin-top:.1em;
+    margin-bottom:.1em;
+}
+
+p.noMarg img{
+    vertical-align: -.3em;
+    margin-right: .2em;
+}
+
+p.noMarg2{
+    margin-top:0em;
+    margin-bottom:0em;
+}
+
+p.margin-top{
+    margin-top:2em;
+    margin-bottom:.1em;
+}
+
+div.contactRef{
+    font-size:80%;
+    line-height:1.4em;
+}
+
+@media (max-width:768px){
+    div.map{
+        display:none;
+    }
+    div.mapText{
+        display:block;
+    }
+    div#map-canvas{
+        display:none;
+    }
+}
+
+
+
+@media (min-width:1800px){
+    div.map{
+        width:1400px;
+        position:relative;
+        left:50%;
+        margin-left: -720px;
+    }
+}
+
+@media (max-height:500px){
+
+     div.outerContain{
+        height:500px;
+     }
+     
+     div.frontCard{
+        top:0px;
+        margin-top:0px;
+     }
+     
+     div.footer{
+        top: 490px;
+     }
+     div.leftFooter{
+        top: 490px;
+     }
+     
+     div.innerCard{
+        margin-top:100px;
+     }
+}
+
+@media (max-height:650px){
+    div.social{
+        position:relative;
+        margin-top:160px;
+        margin-left:10%;
+        margin-bottom:.5em;
+    }
+}
+
+@media (max-height:577px){
+    div.menu_trigger{
+        margin-top:0px;
+        top:527px;
+    }
+    
+    div.mainContain{
+        max-height:380px;
+        top:150px;
+    }
+    
+    div.menu{
+        margin-top:0px;
+        top:80px;
+    }
+    
+}
+
+@media (max-width:768px){
+    div.mapContainer{
+        display:none;
+    }
+    div.menu, div.menu2{
+        height:95%;
+        /*min-height:540px;*/
+        top:2.5%;
+        left:2.5%;
+        width:95%;
+        margin-top:0;
+        font-weight:bold;
+        z-index:100000;
+        background:rgba(0,0,0,.8);
+        border-radius:20px;
+        font-size:1.3em;
+    }
+    div.menu div.smallMenu,div.menu2 div.smallMenu{
+        display:block;
+    }
+    span.hLink{
+        display:none;
+    }
+    span.socialHeader{
+        display:none;
+    }
+    span.smallHlink{
+        display:inline;
+    }
+    div.footer{
+        display:none;
+    }
+    div.leftFooter{
+        display:none;
+    }
+    div.fadeLeft{
+        display:none !important;
+    }
+    
+    div.fadeRight{
+        display:none !important;
+    }
+    
+    div.wrapper{
+        width:100% !important;
+        height:auto !important;
+        left:0 !important;
+        top:0 !important;
+        
+    }
+    
+    a.photograph{
+        display:block !important;
+        width:100% !important;
+    }
+    
+    a.photograph img{
+        height:auto !important;
+        width:100% !important;
+    }
+    
+    div.slideTitle{
+        top:120px;
+        font-size:120%;
+    }
+    
+    div.mainContain{
+        height:auto;
+        top:150px;
+    }
+    
+    div.menu_trigger{
+        display:none;
+    }
+}
+
+@media (min-width:769px){
+    div.menu{
+        display:none !important;
+    }
+}
+
+.infobox {
+  background: none repeat scroll 0 0 #212121;
+  color: #F1F1F1;
+  font-family: arial;
+  line-height: 20px;
+  position: absolute;
+}
+
+.infobox:before, .infobox:after {
+  border-color: transparent transparent transparent #212121;
+  border-style: solid;
+  border-width: 20px 20px 0;
+  bottom: -1px;
+  content: "";
+  display: block;
+  height: 0;
+  left: -1px;
+  position: absolute;
+  width: 0;
+  z-index:2
+}
+
+.infobox:after {
+  border-color: transparent transparent transparent #FFFFFF;
+  border-width:24px 24px 0;
+  z-index:1
+}
+
+.infobox .close {
+background: none repeat scroll 0 0 #212121;
+cursor: pointer;
+float: right;
+font-size: 17px;
+height: 25px;
+line-height: 22px;
+position: relative;
+right: -25px;
+text-align: center;
+top: 0;
+width: 25px;
+}
+
+.infobox .content {
+  margin:15px 15px 15px 15px;
+}
+
+div div.login-control{
+    display:none;
+}
+
+
+/* Zipline Updates -------------------- */
+
+div.menu {
+	position: fixed;
+}
+span.smallMenuLink{
+	text-align:center;
+}
+
+#slideshowModal {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	display: none;
+	overflow-y: scroll;
+}
+.slideshowOverlay {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+p.noMarg a.cv {
+	display: inline-block;
+	width: 24%;
+	margin: 20px 0;
+}
+
+
+p.noMarg a.cv img {
+	width: 200px;
+	height: auto;
+	max-width: 100%;
+}
+
+.smallMenuGridItem {
+	display: inline-block;
+	width: 40%;
+	margin: 10px 0;
+}
+
+.smallMenuGridItem img {
+	max-width: 100%;
+	width: 100px;
+}
+/* Social Links Styling */
+.social {}
+.social__link img {
+	width: 60px;
+	height: auto;
+}
+
+@media (min-width:768px) {
+	.social__link img {
+		width: 20px;
+		height: auto;
+	}
+}
